@@ -52,7 +52,8 @@ class FCM
 
     post_body = { 'message': message }
     extra_headers = {
-      'Authorization' => "Bearer #{jwt_token}"
+      'Authorization' => "Bearer #{jwt_token}",
+      'access_token_auth' => 'true'
     }
     for_uri(BASE_URI_V1, extra_headers) do |connection|
       response = connection.post(
